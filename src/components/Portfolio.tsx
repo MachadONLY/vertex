@@ -2,18 +2,18 @@ import React from 'react';
 
 const projects = [
   {
-    title: 'Modern E-commerce',
-    category: 'Web Design',
+    title: 'E-commerce Moderno',
+    category: 'Design Web',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
-    title: 'Creative Agency',
+    title: 'Agência Criativa',
     category: 'Branding',
     image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
-    title: 'Tech Platform',
-    category: 'Web Development',
+    title: 'Plataforma Tecnológica',
+    category: 'Desenvolvimento Web',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   }
 ];
@@ -23,9 +23,9 @@ const Portfolio = () => {
     <section id="portfolio" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4">Featured Work</h2>
+          <h2 className="text-4xl font-bold text-black mb-4">Trabalhos em Destaque</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore our latest projects and see how we help businesses succeed in the digital world.
+            Explore nossos projetos mais recentes e veja como ajudamos empresas a ter sucesso no mundo digital.
           </p>
         </div>
 

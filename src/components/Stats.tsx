@@ -11,8 +11,8 @@ const services = [
 
 const Stats: React.FC = () => {
   return (
-    <section className="py-20 bg-black overflow-hidden">
-      <div className="relative w-full overflow-hidden">
+    <section className="py-12 bg-black overflow-hidden">
+      <div className="relative w-full  overflow-hidden">
         {/* Loop contínuo de texto */}
         <div className="flex w-[130%] animate-marquee">
           {services.map((service, index) => (
