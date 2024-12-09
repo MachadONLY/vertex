@@ -1,7 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/20967885/2s66lnf/'; // Substitua com sua URL do Zapier Webhook
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Mensagem enviada com sucesso!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Erro ao enviar a mensagem. Tente novamente.');
+      }
+    } catch (error) {
+      alert('Erro ao enviar a mensagem. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +73,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-1">
                 Nome
@@ -40,6 +81,9 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
@@ -50,6 +94,9 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
@@ -59,15 +106,19 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
+                value={formData.message}
+                onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:ring-blue-500 focus:border-blue-500"
               ></textarea>
             </div>
             <button
               type="submit"
               className="w-full bg-zinc-800 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              disabled={isSubmitting}
             >
-              Enviar Mensagem
+              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
             </button>
           </form>
         </div>

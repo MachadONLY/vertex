@@ -9,8 +9,8 @@ const features = [
   },
   {
     icon: <Users className="w-10 h-10 text-gray-700" />,
-    title: 'Suporte Dedicado',
-    description: 'Nossa equipe está disponível 24/7 para ajudar com qualquer problema técnico.'
+    title: 'Design Personalizado',
+    description: 'Criação de sites únicos e personalizados que atendem às necessidades específicas do seu negócio.'
   },
   {
     icon: <Layout className="w-10 h-10 text-gray-700" />,
