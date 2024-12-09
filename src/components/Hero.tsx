@@ -1,6 +1,6 @@
 // pages/index.tsx
 import { useEffect, useRef } from "react";
-import { ArrowRight, ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import AOS from "aos";
 import lottie from "lottie-web";
 import "aos/dist/aos.css";
@@ -64,7 +64,7 @@ const Hero = () => {
             {/* Animation Container */}
             <div
               ref={animationContainer}
-              className="w-64 sm:w-[400px] md:w-[500px]"
+              className="w-64 sm:w-[300px] md:w-[400px] lg:w-[500px]" // Ajustado para melhorar a responsividade
             />
           </div>
         </div>
